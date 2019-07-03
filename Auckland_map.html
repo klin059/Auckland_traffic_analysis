@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_254aceb02f06491d9dc167b3a44b4b24 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_254aceb02f06491d9dc167b3a44b4b24" ></div>
+        
+</body>
+<script>    
+    
+            var map_254aceb02f06491d9dc167b3a44b4b24 = L.map(
+                "map_254aceb02f06491d9dc167b3a44b4b24",
+                {
+                    center: [-36.848461, 174.763336],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_caf00afff1444acb9510571de5965f03 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+            var circle_marker_1a1785af8f5d458cb67e7e5687c00a7b = L.circleMarker(
+                [-36.855630494780975, 174.62990717437827],
+                {"bubblingMouseEvents": true, "color": "#081d58", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#081d58", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_528ed9028b044424b4667eca3a340860 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d58e1191e6724242ab060628a39fb402 = $(`<div id="html_d58e1191e6724242ab060628a39fb402" style="width: 100.0%; height: 100.0%;">LINCOLN RD (HENDERSON):45911.0</div>`)[0];
+            popup_528ed9028b044424b4667eca3a340860.setContent(html_d58e1191e6724242ab060628a39fb402);
+        
+
+        circle_marker_1a1785af8f5d458cb67e7e5687c00a7b.bindPopup(popup_528ed9028b044424b4667eca3a340860)
+        ;
+
+        
+    
+    
+            var circle_marker_4131f083aa57456e988b01e1bf41d3ac = L.circleMarker(
+                [-36.859957875877626, 174.65139016893795],
+                {"bubblingMouseEvents": true, "color": "#1b2c7f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1b2c7f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_709ffd0699174999b76a07a08baea325 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7d1426ae432e492db9c3906eac514d0d = $(`<div id="html_7d1426ae432e492db9c3906eac514d0d" style="width: 100.0%; height: 100.0%;">TE ATATU RD:42172.0</div>`)[0];
+            popup_709ffd0699174999b76a07a08baea325.setContent(html_7d1426ae432e492db9c3906eac514d0d);
+        
+
+        circle_marker_4131f083aa57456e988b01e1bf41d3ac.bindPopup(popup_709ffd0699174999b76a07a08baea325)
+        ;
+
+        
+    
+    
+            var circle_marker_9b74f5aa240d478284823474caf9dc74 = L.circleMarker(
+                [-36.8621570680637, 174.64945201535858],
+                {"bubblingMouseEvents": true, "color": "#223290", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#223290", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_22a85506b7224310ba40af110b3086f5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1ea5177c094347ffab355ca22090466c = $(`<div id="html_1ea5177c094347ffab355ca22090466c" style="width: 100.0%; height: 100.0%;">TE ATATU RD:40599.0</div>`)[0];
+            popup_22a85506b7224310ba40af110b3086f5.setContent(html_1ea5177c094347ffab355ca22090466c);
+        
+
+        circle_marker_9b74f5aa240d478284823474caf9dc74.bindPopup(popup_22a85506b7224310ba40af110b3086f5)
+        ;
+
+        
+    
+    
+            var circle_marker_7a8f28d5e55b4e939e4bff8518daf10a = L.circleMarker(
+                [-36.888182493157814, 174.79829913771226],
+                {"bubblingMouseEvents": true, "color": "#233290", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#233290", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_df91dc18a00745e3b92a6e0bb707d8f4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5044872ea3b24205af0ae8605d3ccf87 = $(`<div id="html_5044872ea3b24205af0ae8605d3ccf87" style="width: 100.0%; height: 100.0%;">GREEN LANE EAST (EASTBOUND) (CWCE):40569.0</div>`)[0];
+            popup_df91dc18a00745e3b92a6e0bb707d8f4.setContent(html_5044872ea3b24205af0ae8605d3ccf87);
+        
+
+        circle_marker_7a8f28d5e55b4e939e4bff8518daf10a.bindPopup(popup_df91dc18a00745e3b92a6e0bb707d8f4)
+        ;
+
+        
+    
+    
+            var circle_marker_35937a3866514629983e4434ed8c6df6 = L.circleMarker(
+                [-36.86283209753801, 174.75583044187584],
+                {"bubblingMouseEvents": true, "color": "#2350a2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2350a2", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_a10a3294a49c4d8ab78fc039fc17a082 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b9c1e516330e40ee8297409d0ab1a3db = $(`<div id="html_b9c1e516330e40ee8297409d0ab1a3db" style="width: 100.0%; height: 100.0%;">NEWTON RD (EDEN TERRACE):36298.0</div>`)[0];
+            popup_a10a3294a49c4d8ab78fc039fc17a082.setContent(html_b9c1e516330e40ee8297409d0ab1a3db);
+        
+
+        circle_marker_35937a3866514629983e4434ed8c6df6.bindPopup(popup_a10a3294a49c4d8ab78fc039fc17a082)
+        ;
+
+        
+    
+    
+            var circle_marker_85800f95ed44493f97821023d1b5da6b = L.circleMarker(
+                [-36.906789840175705, 174.71516345196358],
+                {"bubblingMouseEvents": true, "color": "#243e99", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#243e99", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_ffd92c328b504c17a9aaeca4a96dea11 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_67f7164fb498476f83a8e51c0635f66c = $(`<div id="html_67f7164fb498476f83a8e51c0635f66c" style="width: 100.0%; height: 100.0%;">MAIORO ST:38774.0</div>`)[0];
+            popup_ffd92c328b504c17a9aaeca4a96dea11.setContent(html_67f7164fb498476f83a8e51c0635f66c);
+        
+
+        circle_marker_85800f95ed44493f97821023d1b5da6b.bindPopup(popup_ffd92c328b504c17a9aaeca4a96dea11)
+        ;
+
+        
+    
+    
+            var circle_marker_63ccfc136a5c40ea889c32653ccd3d2f = L.circleMarker(
+                [-36.62088551456853, 174.67404091271308],
+                {"bubblingMouseEvents": true, "color": "#0c2162", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0c2162", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_abd3059314a649dc9d398fc10861069b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4e518f5f98374007a13fcfebe579e479 = $(`<div id="html_4e518f5f98374007a13fcfebe579e479" style="width: 100.0%; height: 100.0%;">HIBISCUS COAST HWAY (SDALE - NTHBND) 13718 to 13842 m:44937.0</div>`)[0];
+            popup_abd3059314a649dc9d398fc10861069b.setContent(html_4e518f5f98374007a13fcfebe579e479);
+        
+
+        circle_marker_63ccfc136a5c40ea889c32653ccd3d2f.bindPopup(popup_abd3059314a649dc9d398fc10861069b)
+        ;
+
+        
+    
+    
+            var circle_marker_c31fee37250a4b9b9cac6fc6c4e41b46 = L.circleMarker(
+                [-36.62251056573883, 174.66871961920268],
+                {"bubblingMouseEvents": true, "color": "#253595", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#253595", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_df050c66232f4939b2606d3fa07b2d0f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_23362fc840bf4e46bb7dde683f1af299 = $(`<div id="html_23362fc840bf4e46bb7dde683f1af299" style="width: 100.0%; height: 100.0%;">HIBISCUS COAST HWAY 12266 to 12614 m:40035.0</div>`)[0];
+            popup_df050c66232f4939b2606d3fa07b2d0f.setContent(html_23362fc840bf4e46bb7dde683f1af299);
+        
+
+        circle_marker_c31fee37250a4b9b9cac6fc6c4e41b46.bindPopup(popup_df050c66232f4939b2606d3fa07b2d0f)
+        ;
+
+        
+    
+    
+            var circle_marker_4cfc0ddb6c1e490998bc42f6345c7daf = L.circleMarker(
+                [-36.89770178945308, 174.90517934264008],
+                {"bubblingMouseEvents": true, "color": "#24439b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#24439b", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_142672f1855a4de39778630fd7b20614 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_16c654519d364452a3299e8098d7cf89 = $(`<div id="html_16c654519d364452a3299e8098d7cf89" style="width: 100.0%; height: 100.0%;">PAKURANGA RD (EASTBND & WESTBND):38123.0</div>`)[0];
+            popup_142672f1855a4de39778630fd7b20614.setContent(html_16c654519d364452a3299e8098d7cf89);
+        
+
+        circle_marker_4cfc0ddb6c1e490998bc42f6345c7daf.bindPopup(popup_142672f1855a4de39778630fd7b20614)
+        ;
+
+        
+    
+    
+            var circle_marker_797a7d2236584e748ab86cf60a4d4b9e = L.circleMarker(
+                [-36.85171932457037, 174.7745868356179],
+                {"bubblingMouseEvents": true, "color": "#1d2e84", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1d2e84", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_62fe79d5300f47eea5ac0aa4a0bd9edb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_88cb62df0a954a4d824b09a8d7748170 = $(`<div id="html_88cb62df0a954a4d824b09a8d7748170" style="width: 100.0%; height: 100.0%;">STANLEY ST (SH 16):41668.0</div>`)[0];
+            popup_62fe79d5300f47eea5ac0aa4a0bd9edb.setContent(html_88cb62df0a954a4d824b09a8d7748170);
+        
+
+        circle_marker_797a7d2236584e748ab86cf60a4d4b9e.bindPopup(popup_62fe79d5300f47eea5ac0aa4a0bd9edb)
+        ;
+
+        
+    
+    
+            var circle_marker_beac305f7b974da7b65cabac21a99d21 = L.circleMarker(
+                [-36.85289631874493, 174.63012951142096],
+                {"bubblingMouseEvents": true, "color": "#0d2164", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d2164", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_2c31b2049a8b4675b301fc06138920d9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fef37376d7bd4aa2b333819da59b7d5e = $(`<div id="html_fef37376d7bd4aa2b333819da59b7d5e" style="width: 100.0%; height: 100.0%;">LINCOLN RD (HENDERSON):44785.0</div>`)[0];
+            popup_2c31b2049a8b4675b301fc06138920d9.setContent(html_fef37376d7bd4aa2b333819da59b7d5e);
+        
+
+        circle_marker_beac305f7b974da7b65cabac21a99d21.bindPopup(popup_2c31b2049a8b4675b301fc06138920d9)
+        ;
+
+        
+    
+    
+            var circle_marker_a57e30e06b754ccda97b8f5cfe36ab7b = L.circleMarker(
+                [-36.71674012584138, 174.71507041839692],
+                {"bubblingMouseEvents": true, "color": "#234ca0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#234ca0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_30c48695e84a4aabab9cdd4d3dd5967a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f0a88e5ba32b44c89b8d07209dab9ab0 = $(`<div id="html_f0a88e5ba32b44c89b8d07209dab9ab0" style="width: 100.0%; height: 100.0%;">OTEHA VALLEY RD:36857.0</div>`)[0];
+            popup_30c48695e84a4aabab9cdd4d3dd5967a.setContent(html_f0a88e5ba32b44c89b8d07209dab9ab0);
+        
+
+        circle_marker_a57e30e06b754ccda97b8f5cfe36ab7b.bindPopup(popup_30c48695e84a4aabab9cdd4d3dd5967a)
+        ;
+
+        
+    
+    
+            var circle_marker_ad7321f60d5f40a89f02be653279c66a = L.circleMarker(
+                [-36.8598788036492, 174.6512426447551],
+                {"bubblingMouseEvents": true, "color": "#1a2b7e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a2b7e", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_eeca2e745893409cb292805235e6f118 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8e27133c27a04eb6a0444fdb0585a914 = $(`<div id="html_8e27133c27a04eb6a0444fdb0585a914" style="width: 100.0%; height: 100.0%;">TE ATATU RD:42246.0</div>`)[0];
+            popup_eeca2e745893409cb292805235e6f118.setContent(html_8e27133c27a04eb6a0444fdb0585a914);
+        
+
+        circle_marker_ad7321f60d5f40a89f02be653279c66a.bindPopup(popup_eeca2e745893409cb292805235e6f118)
+        ;
+
+        
+    
+    
+            var circle_marker_204f6ccd6ca149bbb2a8118ca4f42b41 = L.circleMarker(
+                [-36.863689259630654, 174.64816127148043],
+                {"bubblingMouseEvents": true, "color": "#1f2f87", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f2f87", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_a9c1d82636404e349aaeb8aa35afc7dd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a6b611f27f2c4ef0b14d13f416471234 = $(`<div id="html_a6b611f27f2c4ef0b14d13f416471234" style="width: 100.0%; height: 100.0%;">TE ATATU RD:41379.0</div>`)[0];
+            popup_a9c1d82636404e349aaeb8aa35afc7dd.setContent(html_a6b611f27f2c4ef0b14d13f416471234);
+        
+
+        circle_marker_204f6ccd6ca149bbb2a8118ca4f42b41.bindPopup(popup_a9c1d82636404e349aaeb8aa35afc7dd)
+        ;
+
+        
+    
+    
+            var circle_marker_4539947e60ae49bdb309c7988b4b8689 = L.circleMarker(
+                [-36.87374373916369, 174.7040801365835],
+                {"bubblingMouseEvents": true, "color": "#102369", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#102369", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_31c1562d8da24c1db9f72f74868a368e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_49fb6f9fa66148978a6e6caf41f514b2 = $(`<div id="html_49fb6f9fa66148978a6e6caf41f514b2" style="width: 100.0%; height: 100.0%;">GREAT NORTH RD (CWC):44252.0</div>`)[0];
+            popup_31c1562d8da24c1db9f72f74868a368e.setContent(html_49fb6f9fa66148978a6e6caf41f514b2);
+        
+
+        circle_marker_4539947e60ae49bdb309c7988b4b8689.bindPopup(popup_31c1562d8da24c1db9f72f74868a368e)
+        ;
+
+        
+    
+    
+            var circle_marker_4744cf93dcf041adb639be81b3ce594d = L.circleMarker(
+                [-36.87778113111629, 174.70286837893826],
+                {"bubblingMouseEvents": true, "color": "#172979", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#172979", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_5ee1cd4a5015462aa52e17b50ac32897 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_59a55721d0c34bd3afbca13ea86a0ffc = $(`<div id="html_59a55721d0c34bd3afbca13ea86a0ffc" style="width: 100.0%; height: 100.0%;">GREAT NORTH RD (CWC):42795.0</div>`)[0];
+            popup_5ee1cd4a5015462aa52e17b50ac32897.setContent(html_59a55721d0c34bd3afbca13ea86a0ffc);
+        
+
+        circle_marker_4744cf93dcf041adb639be81b3ce594d.bindPopup(popup_5ee1cd4a5015462aa52e17b50ac32897)
+        ;
+
+        
+    
+    
+            var circle_marker_3fba3db3aa2c43dca38f9848c2704e3a = L.circleMarker(
+                [-36.875881347878774, 174.7039817856284],
+                {"bubblingMouseEvents": true, "color": "#132671", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#132671", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_038d39d0a75a499a8371f2449b3a6185 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5f834d8a8b874ac2b880b57b04b937c9 = $(`<div id="html_5f834d8a8b874ac2b880b57b04b937c9" style="width: 100.0%; height: 100.0%;">GREAT NORTH RD (CWC):43554.0</div>`)[0];
+            popup_038d39d0a75a499a8371f2449b3a6185.setContent(html_5f834d8a8b874ac2b880b57b04b937c9);
+        
+
+        circle_marker_3fba3db3aa2c43dca38f9848c2704e3a.bindPopup(popup_038d39d0a75a499a8371f2449b3a6185)
+        ;
+
+        
+    
+    
+            var circle_marker_a59c78c0cc33428dbe25c2a938b55938 = L.circleMarker(
+                [-36.88027191048249, 174.7020260961666],
+                {"bubblingMouseEvents": true, "color": "#1d2d84", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1d2d84", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_14334f7fe87f45bfa581036f39e62f05 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_96417649af6b4b139eca788e5a139d20 = $(`<div id="html_96417649af6b4b139eca788e5a139d20" style="width: 100.0%; height: 100.0%;">GREAT NORTH RD (CWC):41737.0</div>`)[0];
+            popup_14334f7fe87f45bfa581036f39e62f05.setContent(html_96417649af6b4b139eca788e5a139d20);
+        
+
+        circle_marker_a59c78c0cc33428dbe25c2a938b55938.bindPopup(popup_14334f7fe87f45bfa581036f39e62f05)
+        ;
+
+        
+    
+    
+            var circle_marker_67648376c64d42c596702acc2bf4e235 = L.circleMarker(
+                [-36.88946782736032, 174.7961523829583],
+                {"bubblingMouseEvents": true, "color": "#233391", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#233391", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_3bfd073e55224c1bb7e4941ac3f2089a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5bfece856be142408737a64cb1c73759 = $(`<div id="html_5bfece856be142408737a64cb1c73759" style="width: 100.0%; height: 100.0%;">GREEN LANE EAST (CWC):40435.0</div>`)[0];
+            popup_3bfd073e55224c1bb7e4941ac3f2089a.setContent(html_5bfece856be142408737a64cb1c73759);
+        
+
+        circle_marker_67648376c64d42c596702acc2bf4e235.bindPopup(popup_3bfd073e55224c1bb7e4941ac3f2089a)
+        ;
+
+        
+    
+    
+            var circle_marker_51218723a7364a038e277f5b99c12ec6 = L.circleMarker(
+                [-36.962395385694784, 174.8776330111988],
+                {"bubblingMouseEvents": true, "color": "#234ea0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#234ea0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_9d50838ef6984d1db4033eac4768a083 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_767ca65e5d164b499a2ca6c89e928976 = $(`<div id="html_767ca65e5d164b499a2ca6c89e928976" style="width: 100.0%; height: 100.0%;">EAST TAMAKI RD (EASTBOUND_OTARA) (SW):36661.0</div>`)[0];
+            popup_9d50838ef6984d1db4033eac4768a083.setContent(html_767ca65e5d164b499a2ca6c89e928976);
+        
+
+        circle_marker_51218723a7364a038e277f5b99c12ec6.bindPopup(popup_9d50838ef6984d1db4033eac4768a083)
+        ;
+
+        
+    
+    
+            var circle_marker_27431b0af72e4d9ab4fa87a2458eb8a3 = L.circleMarker(
+                [-36.91059663191377, 174.6910600047055],
+                {"bubblingMouseEvents": true, "color": "#234da0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#234da0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_cfeb64fe5cba4ea593c2795141bbd199 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cfcc4cb561014c90a3c5cb78c8396ffb = $(`<div id="html_cfcc4cb561014c90a3c5cb78c8396ffb" style="width: 100.0%; height: 100.0%;">CLARK ST (NEW LYNN):36748.0</div>`)[0];
+            popup_cfeb64fe5cba4ea593c2795141bbd199.setContent(html_cfcc4cb561014c90a3c5cb78c8396ffb);
+        
+
+        circle_marker_27431b0af72e4d9ab4fa87a2458eb8a3.bindPopup(popup_cfeb64fe5cba4ea593c2795141bbd199)
+        ;
+
+        
+    
+    
+            var circle_marker_33083e9a5f5f407b99ed0536b7ff6fe6 = L.circleMarker(
+                [-36.79533848572403, 174.77106595503983],
+                {"bubblingMouseEvents": true, "color": "#234a9f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#234a9f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_c2337a0d5ef2467e8d8549fa56f7d08d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f8b456cde1d0461d87bce8abce23b8f7 = $(`<div id="html_f8b456cde1d0461d87bce8abce23b8f7" style="width: 100.0%; height: 100.0%;">ESMONDE RD:37090.0</div>`)[0];
+            popup_c2337a0d5ef2467e8d8549fa56f7d08d.setContent(html_f8b456cde1d0461d87bce8abce23b8f7);
+        
+
+        circle_marker_33083e9a5f5f407b99ed0536b7ff6fe6.bindPopup(popup_c2337a0d5ef2467e8d8549fa56f7d08d)
+        ;
+
+        
+    
+    
+            var circle_marker_8cb1d701cf7d4c1296bb4d010f8c93d4 = L.circleMarker(
+                [-36.90876192140393, 174.6658996824541],
+                {"bubblingMouseEvents": true, "color": "#1c2d83", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1c2d83", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_b68693d6ce56463ca7fe3409cd72249f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d2bbbf1aadf24816a2c928c7689a5531 = $(`<div id="html_d2bbbf1aadf24816a2c928c7689a5531" style="width: 100.0%; height: 100.0%;">GREAT NORTH RD (WAITAKERE) 2388 to 2478 m:41783.0</div>`)[0];
+            popup_b68693d6ce56463ca7fe3409cd72249f.setContent(html_d2bbbf1aadf24816a2c928c7689a5531);
+        
+
+        circle_marker_8cb1d701cf7d4c1296bb4d010f8c93d4.bindPopup(popup_b68693d6ce56463ca7fe3409cd72249f)
+        ;
+
+        
+    
+    
+            var circle_marker_bdd84b435f2d49a995e305ca6e12259e = L.circleMarker(
+                [-36.90620258029811, 174.71775422085597],
+                {"bubblingMouseEvents": true, "color": "#22328e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#22328e", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_cc376b3c0e9c44478f2b7459e599fcbf = L.popup({"maxWidth": "100%"});
+
+        
+            var html_282bf25920fd4a3caa79fd8d4424c11c = $(`<div id="html_282bf25920fd4a3caa79fd8d4424c11c" style="width: 100.0%; height: 100.0%;">MAIORO ST 240 to 416 m:40713.0</div>`)[0];
+            popup_cc376b3c0e9c44478f2b7459e599fcbf.setContent(html_282bf25920fd4a3caa79fd8d4424c11c);
+        
+
+        circle_marker_bdd84b435f2d49a995e305ca6e12259e.bindPopup(popup_cc376b3c0e9c44478f2b7459e599fcbf)
+        ;
+
+        
+    
+    
+            var circle_marker_0201b2ecf4e242cb88769fcd131d2aea = L.circleMarker(
+                [-36.91983852046921, 174.8165768717202],
+                {"bubblingMouseEvents": true, "color": "#1e2e86", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1e2e86", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_84624aeb16324c78a0eb7edce532c54b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c798cfbdbb8f48b3857a9e1c78ed2e48 = $(`<div id="html_c798cfbdbb8f48b3857a9e1c78ed2e48" style="width: 100.0%; height: 100.0%;">CHURCH ST (ONEHUNGA) 0 to 593 m:41503.0</div>`)[0];
+            popup_84624aeb16324c78a0eb7edce532c54b.setContent(html_c798cfbdbb8f48b3857a9e1c78ed2e48);
+        
+
+        circle_marker_0201b2ecf4e242cb88769fcd131d2aea.bindPopup(popup_84624aeb16324c78a0eb7edce532c54b)
+        ;
+
+        
+    
+    
+            var circle_marker_14beade0a74944a59e655b879ed4ed20 = L.circleMarker(
+                [-36.9054342521114, 174.84064628546392],
+                {"bubblingMouseEvents": true, "color": "#2350a2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2350a2", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_3132661b827348abb41a5036ccc4b9e7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b6f43cbd480a40e5b4d163d21f6391b5 = $(`<div id="html_b6f43cbd480a40e5b4d163d21f6391b5" style="width: 100.0%; height: 100.0%;">MT WELLINGTON HIGHWAY 713 to 1228 m:36262.0</div>`)[0];
+            popup_3132661b827348abb41a5036ccc4b9e7.setContent(html_b6f43cbd480a40e5b4d163d21f6391b5);
+        
+
+        circle_marker_14beade0a74944a59e655b879ed4ed20.bindPopup(popup_3132661b827348abb41a5036ccc4b9e7)
+        ;
+
+        
+    
+    
+            var circle_marker_5d9d1e04e420463f8263a48f7732b7d4 = L.circleMarker(
+                [-36.912358312129456, 174.8381973952335],
+                {"bubblingMouseEvents": true, "color": "#243e99", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#243e99", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_254aceb02f06491d9dc167b3a44b4b24);
+        
+    
+        var popup_75bb5c4ca62f41ac8351efda39617535 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cdc78b7d5b7e4610a6aca044871538ca = $(`<div id="html_cdc78b7d5b7e4610a6aca044871538ca" style="width: 100.0%; height: 100.0%;">MT WELLINGTON HIGHWAY 1748 to 1862 m:38735.0</div>`)[0];
+            popup_75bb5c4ca62f41ac8351efda39617535.setContent(html_cdc78b7d5b7e4610a6aca044871538ca);
+        
+
+        circle_marker_5d9d1e04e420463f8263a48f7732b7d4.bindPopup(popup_75bb5c4ca62f41ac8351efda39617535)
+        ;
+
+        
+    
+</script>
