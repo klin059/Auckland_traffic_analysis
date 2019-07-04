@@ -85,7 +85,7 @@ time_period_range = {'One month ahead':1, 'Two months ahead':2,
                      'Three months ahead':3, 'Six months ahead':6, 'One year ahead':12, 'To the most recent date':60}
 app.layout = html.Div([
     html.H1('Auckland Traffic'),
-    html.P(id = 'dispaly_info'),
+    
    
     html.Div([
         html.Div([
@@ -127,7 +127,8 @@ app.layout = html.Div([
                         # add markers for key dates
                         marks=get_marks_from_start_end(pd.to_datetime(df.index.min()),
                                                        pd.to_datetime(df.index.max()))
-                        )
+                        ),
+                html.P(id = 'dispaly_info')
             ], className = 'four columns')
                 
         ], className = 'row')
