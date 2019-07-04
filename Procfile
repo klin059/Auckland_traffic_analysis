@@ -1,1 +1,1 @@
-gunicorn Auckland_traffic_app:server
+web: gunicorn Auckland_traffic_app:server
