@@ -58,8 +58,8 @@ Index(['Road Name', 'Carriageway Start Name', 'Carriageway End Name',
 """
 
 initial_col = volume_cols[0]
-date_range_min = '2018-05-01'
-date_rage_max = '2018-05-31'
+#date_range_min = '2018-05-01'
+#date_rage_max = '2018-05-31'
 
 # settings for the map
 
@@ -69,9 +69,9 @@ def create_visualization(df_, date_range_min_, date_rage_max_, col_, percentile 
     df_ = df_[df_[col_] > np.nanpercentile(df_[col_], percentile)]
     
     m = folium.Map(location = [-36.848461, 174.763336])  #show Auckland
-    for long, lat, volume, road in zip(df_['longitude'], df_['latitude'], df_[col_], df_['Road Name']):
+    for long, lat, volume, road, date in zip(df_['longitude'], df_['latitude'], df_[col_], df_['Road Name'], df_.index):
         folium.CircleMarker(location=(lat, long),
-                        popup = f'{road}:{volume}',
+                        popup = f'road:{road}, volume:{volume}, date:{date}',
                         radius=radius,
                         color=colorscale(volume),
                         fill=True).add_to(m)
@@ -146,7 +146,7 @@ app.layout = html.Div([
 def display_value(selected_volume, selected_pt, selected_period, selected_date_value):
     d = datetime.fromtimestamp(selected_date_value)
     d_ub = min(d + relativedelta(months = selected_period), pd.to_datetime(df.index.max())) 
-    return f"Displaying '{selected_volume}' traffic records with volume that exceeds the upper {selected_pt}% percentile and are collected inbetween {d.strftime('%Y-%m-%d')} and {d_ub.strftime('%Y-%m-%d')}."
+    return f"Displaying '{selected_volume}' traffic records with volume that exceed the upper {selected_pt}% percentile and are collected inbetween {d.strftime('%Y-%m-%d')} and {d_ub.strftime('%Y-%m-%d')}."
 
 @app.callback(
     dash.dependencies.Output('map', 'srcDoc'),
