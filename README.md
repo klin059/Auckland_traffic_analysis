@@ -6,7 +6,7 @@ the traffic volume change in Auckland. However, the method can still be useful o
 For those who want to look at the data interactively, feel free to visit the app I built at
 https://auckland-traffic-vis.herokuapp.com/. 
 
-[<img src="images/percentage_volume_diff_map.png" width = "500">](https://auckland-traffic-vis.herokuapp.com/)
+[<img src="images/app_screen_shot.png" width = "600">](https://auckland-traffic-vis.herokuapp.com/)
 
 Note that it may take around 20 seconds to access the 
 site (due to free tier hosting). Jupyter notebooks for the analysis are available at
@@ -57,9 +57,7 @@ We can see the maximum days apart between two traffic count dates is around 350 
 represented by the cluster at the top-left cornor of the figure. These data points are good for measuring
 the change of traffic volume since seasonality effects are minimal. 
 
-We measure the volume change in percentage as 
-
-![](images/eq1.gif) 
+We measure the volume change in percentage as ![](images/eq1.gif). 
 
 The calculated statistics and the boxplot are as follows:
 - count    82.000000
