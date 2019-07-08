@@ -20,7 +20,7 @@ after 2018. We remove three records before December 2017 since these records hav
 far apart from those of the other records. Only 219 coordinates (out of 2681) are sampled more than 
 once and 29 coordinates are sampled more than twice since December 2017. 
 
-![](images\sampling_frequency.png)
+![](images/sampling_frequency.png)
 
 Exploratory analysis shows very high correlation between all the traffic volume measures, e.g.
 - `7 Day ADT` is highly correlated with `5 Day ADT` (ρ = 0.99808)
@@ -41,7 +41,7 @@ The statistics and the histogram graph of the measure are as the follows:
 - 75%      14845.000000
 - max      45272.000000
 
-![](images\volume_histogram.png')
+![](images/volume_histogram.png)
 
 ## Change of traffic volume over time
 We will use the data from coordinates that are sampled more than once to estimate the change of traffic volume. 
@@ -55,7 +55,7 @@ the change of traffic volume since seasonality effects are minimal.
 
 We measure the volume change in percentage as 
 
-![](images\eq1.gif') 
+![](images\eq1.gif) 
 
 The calculated statistics and the boxplot are as follows:
 - count    82.000000
@@ -66,6 +66,7 @@ The calculated statistics and the boxplot are as follows:
 - 50%       0.015042
 - 75%       0.065151
 - max       1.810000
+
 ![](images/percent_volume_difference.png)
 
 The median volume difference is 1.5%. The mean volume difference is 3.8% but there are quite a 
