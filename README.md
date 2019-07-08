@@ -55,7 +55,7 @@ the change of traffic volume since seasonality effects are minimal.
 
 We measure the volume change in percentage as 
 
-![](images\eq1.gif) 
+![](images/eq1.gif) 
 
 The calculated statistics and the boxplot are as follows:
 - count    82.000000
@@ -76,7 +76,7 @@ However, mapping the data shows that most records are not for Auckland but for a
 near Pukekohe, Waiuku and Manukau heads. So in the end we do not have a good estimation for the change 
 of Auckland Traffic.
 
-![](images/percentage_volume_diff_map.png)
+![](images/percentage_volume_diff_map.PNG)
 
 ## Conclusion
 In conclusion, we don't have the data that can tell us the change of traffic volume without seasonal 
