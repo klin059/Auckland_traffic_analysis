@@ -29,8 +29,9 @@ Exploratory analysis shows very high correlation between all the traffic volume 
 - `PM Peak Volume` is highly correlated with `Mid Peak Volume` (ρ = 0.97767)
 - `Sunday Volume` is highly correlated with `Saturday Volume` (ρ = 0.98863)
 - `Saturday Volume` is highly correlated with `7 Day ADT` (ρ = 0.98617) 
-Therefore, for the following analysis we simply focus on one of the measures - `7 Day ADT`.
-The statistics and the histogram graph of the measure are as the following:
+
+Therefore, for the following analysis we focus on one of the measures - `7 Day ADT`.
+The statistics and the histogram graph of the measure are as the follows:
 - count     2680.000000
 - mean      9404.418657
 - std       8412.181971
@@ -39,6 +40,7 @@ The statistics and the histogram graph of the measure are as the following:
 - 50%       7334.500000
 - 75%      14845.000000
 - max      45272.000000
+
 ![](images\volume_histogram.png')
 
 ## Change of traffic volume over time
@@ -52,7 +54,9 @@ represented by the cluster at the top-left cornor of the figure. These data poin
 the change of traffic volume since seasonality effects are minimal. 
 
 We measure the volume change in percentage as 
+
 ![](images\eq1.gif') 
+
 The calculated statistics and the boxplot are as follows:
 - count    82.000000
 - mean      0.038190
@@ -67,8 +71,11 @@ The calculated statistics and the boxplot are as follows:
 The median volume difference is 1.5%. The mean volume difference is 3.8% but there are quite a 
 few outliers. It would be interesting to find out the reasons behind these outliers.
 
-Mapping the data shows that most records are not for Auckland but for areas
-near Pukekohe, Waiuku and Manukau heads. 
+However, mapping the data shows that most records are not for Auckland but for areas
+near Pukekohe, Waiuku and Manukau heads. So in the end we do not have a good estimation for the change 
+of Auckland Traffic.
+
+![](images/percentage_volume_diff_map.png)
 
 ## Conclusion
 In conclusion, we don't have the data that can tell us the change of traffic volume without seasonal 
