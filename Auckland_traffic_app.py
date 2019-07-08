@@ -20,7 +20,7 @@ server = app.server
 
 df = pd.read_csv(r'data/traffic-counts_v1.csv', parse_dates = ['Count Start Date'])
 df.set_index('Count Start Date', inplace = True)
-
+df = df[df.index > '2017-12-01']
 epoch = datetime.utcfromtimestamp(0)
 def unix_time_millis(dt):
     return (dt - epoch).total_seconds() #* 1000.0
