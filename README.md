@@ -6,7 +6,7 @@ the traffic volume change in Auckland. However, the method can still be useful o
 For those who want to look at the data interactively, feel free to visit the app I built at
 https://auckland-traffic-vis.herokuapp.com/. 
 
-[![](percentage_volume_diff_map.PNG)](https://auckland-traffic-vis.herokuapp.com/)
+<img src="images/percentage_volume_diff_map.png" width = "500" href="https://auckland-traffic-vis.herokuapp.com/">
 
 Note that it may take around 20 seconds to access the 
 site (due to free tier hosting). Jupyter notebooks for the analysis are available at
