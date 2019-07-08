@@ -4,7 +4,11 @@ seasonal effects. In the end we will see that the data at hand does not allow us
 the traffic volume change in Auckland. However, the method can still be useful once more data are collected.
 
 For those who want to look at the data interactively, feel free to visit the app I built at
-https://auckland-traffic-vis.herokuapp.com/. Note that it may take around 20 seconds to access the 
+https://auckland-traffic-vis.herokuapp.com/. 
+
+[![](percentage_volume_diff_map.PNG)](https://auckland-traffic-vis.herokuapp.com/)
+
+Note that it may take around 20 seconds to access the 
 site (due to free tier hosting). Jupyter notebooks for the analysis are available at
 [1_data_cleaning.ipynb](1_data_cleaning.ipynb) and [2_analysis.ipynb](2_analysis.ipynb).
 
