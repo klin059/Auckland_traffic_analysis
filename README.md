@@ -1,25 +1,22 @@
 # Auckland_traffic
-In this project we will analyse Auckland traffic data to estimate traffic volume change overtime without 
-seasonal effects. In the end we will see that the data at hand does not allow us to draw a conclusion for 
-the traffic volume change in Auckland. However, the method can still be useful once more data are collected.
+In this project, we analyse Auckland traffic data to estimate the change of traffic volume change over time. 
 
 For those who want to look at the data interactively, feel free to visit the app I built at
 https://auckland-traffic-vis.herokuapp.com/. 
 
 [<img src="images/app_screen_shot.png" width = "800">](https://auckland-traffic-vis.herokuapp.com/)
 
-Note that it may take around 20 seconds to access the 
-site (due to free tier hosting). Jupyter notebooks for the analysis are available at
+Jupyter notebooks for the analysis are available at
 [1_data_cleaning.ipynb](1_data_cleaning.ipynb) and [2_analysis.ipynb](2_analysis.ipynb).
 
 ## Data
 Data was obtained from 
-https://at.govt.nz/about-us/reports-publications/traffic-counts/. In particular we will
-only analyze records that contains NZTM coordinate (which are later transfered into longitude 
+https://at.govt.nz/about-us/reports-publications/traffic-counts/ on 2019/07/02. I will
+focus on records that contains NZTM coordinates (the coordinates are transformed into longitude 
 and latitude in the analysis).
 
 ## Exploratory analysis
-There are 2684 records with NZTM coordinates. The majority of the records we have are 
+There are 2684 records with NZTM coordinates. The majority of the records are 
 after 2018. We remove three records before December 2017 since these records have traffic count dates 
 far apart from those of the other records. Only 219 coordinates (out of 2681) are sampled more than 
 once and 29 coordinates are sampled more than twice since December 2017. 
@@ -48,8 +45,8 @@ The statistics and the histogram graph of the measure are as the follows:
 ![](images/volume_histogram.png)
 
 ## Change of traffic volume over time
-We will use the data from coordinates that are sampled more than once to estimate the change of traffic volume. 
-First we look at the time periods between the first traffic count date and the last traffic count date.
+We use records in which the coordinates that are sampled more than once to estimate the change of traffic volume. 
+The following figure shows the time periods between the first traffic count date and the last traffic count date.
 
 ![](images/days_apart.png)
 
@@ -59,7 +56,7 @@ the change of traffic volume since seasonality effects are minimal.
 
 We measure the volume change in percentage as ![](images/eq1.gif). 
 
-The calculated statistics and the boxplot are as follows:
+The statistics for percentage volume change and the boxplot are as follows:
 - count    82.000000
 - mean      0.038190
 - std       0.244060
@@ -71,20 +68,13 @@ The calculated statistics and the boxplot are as follows:
 
 ![](images/percent_volume_difference.png)
 
-The median volume difference is 1.5%. The mean volume difference is 3.8% but there are quite a 
-few outliers. It would be interesting to find out the reasons behind these outliers.
+The median percentage volume difference is 1.5%. The mean volume difference is 3.8% but the mean value is skewed by the outliers. It would be interesting to look into the reasons behind these outliers.
 
-However, mapping the data shows that most records are not for Auckland but for areas
-near Pukekohe, Waiuku and Manukau heads. So in the end we do not have a good estimation for the change 
-of Auckland Traffic.
+Mapping of the data shows that most records are for the south of Auckland, near Pukekohe, Waiuku and Manaukau heads. 
 
 ![](images/percentage_volume_diff_map.PNG)
 
-## Conclusion
-In conclusion, we don't have the data that can tell us the change of traffic volume without seasonal 
-effects. However, if we were to collect data 
-1 year apart from the existing data at the coordinates of interest, we would be able to use the same 
-analysis to estimate the change in traffic volume.
+## to be continued
 
 
 
