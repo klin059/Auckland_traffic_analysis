@@ -15,12 +15,15 @@ import branca
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
+
 app = dash.Dash(__name__)
 server = app.server
 
-df = pd.read_csv(r'data/traffic-counts_v1.csv', parse_dates = ['Count Start Date'])
-df.set_index('Count Start Date', inplace = True)
-df = df[df.index > '2017-12-01']
+df = pd.read_csv(r'data/merged_date.csv', parse_dates = ['count_date'])
+df.set_index('count_date', inplace = True)
+df.drop_duplicates(inplace = True)
+df.sort_index(inplace = True)
+df = df[df.index > '2016-12-01']  # for now set this restriction to limit resources
 epoch = datetime.utcfromtimestamp(0)
 def unix_time_millis(dt):
     return (dt - epoch).total_seconds() #* 1000.0
@@ -37,86 +40,84 @@ def get_marks_from_start_end(start, end):
     return {unix_time_millis(m):(str(m.strftime('%Y-%m'))) for m in result}
 min_date, max_date = unix_time_millis(pd.to_datetime(df.index.min())), unix_time_millis(pd.to_datetime(df.index.max()))
 
+#volume_cols = ['5 Day ADT', '7 Day ADT', 'Saturday Volume', 'Sunday Volume',
+#       'AM Peak Volume', 'Mid Peak Volume', 'PM Peak Volume']
+#"""
+#Index(['Road Name', 'Carriageway Start Name', 'Carriageway End Name',
+#       '5 Day ADT', '7 Day ADT', 'Saturday Volume', 'Sunday Volume',
+#       'AM Peak Volume', 'AM Peak Hour', 'Mid Peak Volume', 'Mid Peak Hour',
+#       'PM Peak Volume', 'PM Peak Hour', 'Car', 'LCV', 'MCV', 'HCV-I',
+#       'HCV-II', 'HCV Total', 'latitude', 'longitude'],
+#      dtype='object')
+#"""
 
-#start_year = 2018
-#start_month = 5
-#start_day = 1
-#end_year = 2018
-#end_month = 6
-#end_day = 1
-#start_date = 1
-
-volume_cols = ['5 Day ADT', '7 Day ADT', 'Saturday Volume', 'Sunday Volume',
-       'AM Peak Volume', 'Mid Peak Volume', 'PM Peak Volume']
-"""
-Index(['Road Name', 'Carriageway Start Name', 'Carriageway End Name',
-       '5 Day ADT', '7 Day ADT', 'Saturday Volume', 'Sunday Volume',
-       'AM Peak Volume', 'AM Peak Hour', 'Mid Peak Volume', 'Mid Peak Hour',
-       'PM Peak Volume', 'PM Peak Hour', 'Car', 'LCV', 'MCV', 'HCV-I',
-       'HCV-II', 'HCV Total', 'latitude', 'longitude'],
-      dtype='object')
-"""
-
-initial_col = volume_cols[0]
+initial_col = 'adt'
 #date_range_min = '2018-05-01'
 #date_rage_max = '2018-05-31'
 
 # settings for the map
 
-def create_visualization(df_, date_range_min_, date_rage_max_, col_, percentile = 80, radius = 10):
-    colorscale = branca.colormap.linear.YlGnBu_09.scale(min(df_[col_]), max(df_[col_]))
+def create_visualization(df_, date_range_min_, date_rage_max_, selected_volumes, radius = 10):
+    col_ = 'adt'
+    colorscale = branca.colormap.linear.YlGnBu_09.scale(0, max(df_[col_]))
     df_ = df_.loc[date_range_min_:date_rage_max_]
-    df_ = df_[df_[col_] > np.nanpercentile(df_[col_], percentile)]
+    df_ = df_[(df_[col_] > selected_volumes[0]) & (df_[col_] < selected_volumes[1])]
     
     m = folium.Map(location = [-36.848461, 174.763336])  #show Auckland
-    for long, lat, volume, road, date in zip(df_['longitude'], df_['latitude'], df_[col_], df_['Road Name'], df_.index):
+    for long, lat, volume, road, date in zip(df_['longitude'], df_['latitude'], df_[col_], df_['road_name'], df_.index):
         folium.CircleMarker(location=(lat, long),
                         popup = f'road:{road}, volume:{volume}, date:{date}',
                         radius=radius,
                         color=colorscale(volume),
                         fill=True).add_to(m)
+    cmap = colorscale.to_step(10)
+    cmap.caption = "7-day average daily traffic count"
+    cmap.add_to(m)
     m.save('Auckland_map.html')
 #    m._repr_html_()
     return m
+
+def get_df_sub_by_coord(df, long, lat):
+    # get records of a certain coordinate
+    return df[(df['longitude'] == long) & (df['latitude'] == lat)]
+
+def plot_time_series(df, long, lat):
+    temp = get_df_sub_by_coord(df, long, lat)
+#    plt.plot(temp['adt'])
     
 #create_visualization(df, date_range_min, date_rage_max, initial_col)
 percentile_range = ['1%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '99%']
 time_period_range = {'One month ahead':1, 'Two months ahead':2, 
                      'Three months ahead':3, 'Six months ahead':6, 'One year ahead':12, 'To the most recent date':60}
 app.layout = html.Div([
-    html.H1('Auckland Traffic'),
-    
+    html.H1('Auckland Traffic Visualization'),
+    html.P(id = 'dispaly_info'),
    
     html.Div([
         html.Div([
-            
             html.Iframe(id = 'map', srcDoc = open('default_Auckland_map.html', 'r').read(), width = '90%', height = '600')
         ], className = 'seven columns'),
         # next div here    
         html.Div([
             html.Div([
-                html.P('Select traffic volume metric:'),
-                dcc.Dropdown(
-                        id = 'volume_dropdown',
-                        options = [{'label': col, 'value': col} for col in volume_cols],
-                        value = initial_col
-                        ),
-
-                html.P('Select percentile:'),
-                dcc.Dropdown(
-                        id = 'percentile_dropdown',
-                        options = [{'label': col, 'value': int(col.strip('%'))} for col in percentile_range],
-            #            placeholder = '80%'
-                        value = 80
-                        ),
-                html.P('Select time period:'),
-                dcc.Dropdown(
-                        id = 'time_period_dropdown',
-                        options = [{'label': col, 'value': value} for col, value in time_period_range.items()],
-                        value = 1,
-            #            placeholder = 'One month ahead'
-                        ),
-                html.P('Select time:'),
+                html.H3('Select traffic volume range:'),
+                dcc.RangeSlider(
+                        id='volume_slider',
+                        min=0,
+                        max=df['adt'].max(),
+                        step=1000,
+                        value=[30000, df['adt'].max()]
+                    ),
+                
+                html.P(id = 'volume_slider_display'),
+#                dcc.Dropdown(
+#                        id = 'percentile_dropdown',
+#                        options = [{'label': p, 'value': int(p.strip('%'))} for p in percentile_range],
+#            #            placeholder = '80%'
+#                        value = 80
+#                        ),
+                html.H3('Select time period:'),
+                html.P('Time period start date:'),
                 dcc.Slider(
                         id = 'datetime_Slider',
                         updatemode = 'mouseup', #don't let it update till mouse released
@@ -128,7 +129,15 @@ app.layout = html.Div([
                         marks=get_marks_from_start_end(pd.to_datetime(df.index.min()),
                                                        pd.to_datetime(df.index.max()))
                         ),
-                html.P(id = 'dispaly_info')
+                html.P('Select period length:'),
+                dcc.Dropdown(
+                        id = 'time_period_dropdown',
+                        options = [{'label': ind, 'value': value} for ind, value in time_period_range.items()],
+                        value = 1,
+            #            placeholder = 'One month ahead'
+                        ),                
+                
+                html.P(id = 'time_period_display')
             ], className = 'four columns')
                 
         ], className = 'row')
@@ -137,31 +146,42 @@ app.layout = html.Div([
     
 ], className = 'row')
 
+@app.callback(dash.dependencies.Output('time_period_display', 'children'),
+              [dash.dependencies.Input('time_period_dropdown', 'value'), 
+                 dash.dependencies.Input('datetime_Slider', 'value')])
+def display_time_period(selected_period, selected_date_value):
+    d = datetime.fromtimestamp(selected_date_value)
+    d_ub = min(d + relativedelta(months = selected_period), pd.to_datetime(df.index.max()))
+    return f"Selecting dates between {d.strftime('%Y-%m-%d')} to {d_ub.strftime('%Y-%m-%d')}"
+
+@app.callback(dash.dependencies.Output('volume_slider_display', 'children'),
+              [dash.dependencies.Input('volume_slider', 'value')])
+def display_volume_slider_range(volumes):
+    return f'Selecting traffic volume between {volumes[0]} and {volumes[1]}'
+
 @app.callback(dash.dependencies.Output('dispaly_info', 'children'),
-              [dash.dependencies.Input('volume_dropdown', 'value'),
-                 dash.dependencies.Input('percentile_dropdown', 'value'),
+              [dash.dependencies.Input('volume_slider', 'value'),
                  dash.dependencies.Input('time_period_dropdown', 'value'), 
                  dash.dependencies.Input('datetime_Slider', 'value')
                  ])
-def display_value(selected_volume, selected_pt, selected_period, selected_date_value):
+def display_value(selected_volumes, selected_period, selected_date_value):
     d = datetime.fromtimestamp(selected_date_value)
     d_ub = min(d + relativedelta(months = selected_period), pd.to_datetime(df.index.max())) 
-    return f"Displaying '{selected_volume}' traffic records with volume that exceed the upper {selected_pt}% percentile and are collected inbetween {d.strftime('%Y-%m-%d')} and {d_ub.strftime('%Y-%m-%d')}."
+    return f"Displaying 7-day average daily traffic records collected from {d.strftime('%Y-%m-%d')} to {d_ub.strftime('%Y-%m-%d')} with traffic count between {selected_volumes[0]} and {selected_volumes[1]}."
 
 @app.callback(
     dash.dependencies.Output('map', 'srcDoc'),
-    [dash.dependencies.Input('volume_dropdown', 'value'),
-     dash.dependencies.Input('percentile_dropdown', 'value'),
+    [#dash.dependencies.Input('volume_dropdown', 'value'),
+     dash.dependencies.Input('volume_slider', 'value'),
      dash.dependencies.Input('time_period_dropdown', 'value'), 
      dash.dependencies.Input('datetime_Slider', 'value')
      ])
-def update_map(selected_volume, selected_pt, selected_period, selected_date_value):
+def update_map(selected_volumes, selected_period, selected_date_value):
 #    date_range_min = selected_date
     selected_date = datetime.fromtimestamp(selected_date_value)
     selected_date_ub = selected_date + relativedelta(months = selected_period)
-    if selected_volume in volume_cols:
-        create_visualization(df, selected_date.date(), selected_date_ub.date(), selected_volume, selected_pt, radius = 10)
-        return open('Auckland_map.html', 'r').read()  #m._repr_html_()
+    create_visualization(df, selected_date.date(), selected_date_ub.date(), selected_volumes, radius = 10)
+    return open('Auckland_map.html', 'r').read()  #m._repr_html_()
 #test = df.loc[selected_date:selected_date_ub]
 #app.css.append_css({
 #        'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'
