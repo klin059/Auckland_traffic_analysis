@@ -16,6 +16,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 
+
 app = dash.Dash(__name__)
 server = app.server
 
@@ -81,12 +82,12 @@ def get_df_sub_by_coord(df, long, lat):
     # get records of a certain coordinate
     return df[(df['longitude'] == long) & (df['latitude'] == lat)]
 
-def plot_time_series(df, long, lat):
-    temp = get_df_sub_by_coord(df, long, lat)
+#def plot_time_series(df, long, lat):
+#    temp = get_df_sub_by_coord(df, long, lat)
 #    plt.plot(temp['adt'])
     
 #create_visualization(df, date_range_min, date_rage_max, initial_col)
-percentile_range = ['1%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '99%']
+#percentile_range = ['1%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '99%']
 time_period_range = {'One month ahead':1, 'Two months ahead':2, 
                      'Three months ahead':3, 'Six months ahead':6, 'One year ahead':12, 'To the most recent date':60}
 app.layout = html.Div([
