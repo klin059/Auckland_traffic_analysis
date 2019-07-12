@@ -2,7 +2,7 @@
 In this project, we analyse Auckland traffic data to estimate the change of traffic volume change over time. 
 
 For those who want to look at the data interactively, feel free to visit the app I built at
-https://auckland-traffic-vis.herokuapp.com/. 
+https://akl-traffic-vis.herokuapp.com/. 
 
 [<img src="images/app_screen_shot.png" width = "800">](https://auckland-traffic-vis.herokuapp.com/)
 
