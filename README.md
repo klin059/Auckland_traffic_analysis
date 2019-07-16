@@ -39,21 +39,14 @@ The following figure depicts the historical ADT and the coordinate index. The co
 increasing maximum ADT and the points are colored by days elapesd from 2010-01-01. 
 We can see that the maximum ADT of a location is usually the most ADT record.
 
-![](images/ADT_sorted_by_location.png)
-
-There are 2684 records with NZTM coordinates. The majority of the records are 
-after 2018. We remove three records before December 2017 since these records have traffic count dates 
-far apart from those of the other records. Only 219 coordinates (out of 2681) are sampled more than 
-once and 29 coordinates are sampled more than twice since December 2017. 
-
-![](images/sampling_frequency.png)
+[<img src="images/ADT_sorted_by_location.png" width = "400">](images/ADT_sorted_by_location.png)
 
 Plotting the scatter plot of date versus coordinate index discovers that the sampling pattern varying 
 over time. For example, we can see there is dense sampling of the coordinates with top ADT around 
 2011 and 2012 (circled in red) and rather sparse sampling at high ADT coordinates from mid 2012 
 to early 2015 (circled in green).
 
-![](images/date_vs_coord_edit.PNG)
+[<img src="images/date_vs_coord_edit.PNG" width = "400">](images/date_vs_coord_edit.PNG)
 
 Adding ADT as color scale shows that ADT over time for a coordinate appears to be stable. Note that there is 
 a higher sampling density near central Auckland.
