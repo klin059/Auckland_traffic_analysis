@@ -1,80 +1,85 @@
 # Auckland_traffic
-In this project, we analyse Auckland traffic data to estimate the change of traffic volume change over time. 
+In this project, we analyse Auckland traffic data to estimate/forecast the change of traffic volume over time. 
 
 For those who want to look at the data interactively, feel free to visit the app I built at
 https://akl-traffic-vis.herokuapp.com/. 
 
 [<img src="images/app_screen_shot.png" width = "800">](https://auckland-traffic-vis.herokuapp.com/)
 
-Jupyter notebooks for the analysis are available at
-[1_data_cleaning.ipynb](1_data_cleaning.ipynb) and [2_analysis.ipynb](2_analysis.ipynb).
-
 ## Data
 Data was obtained from 
-https://at.govt.nz/about-us/reports-publications/traffic-counts/ on 2019/07/02. I will
-focus on records that contains NZTM coordinates (the coordinates are transformed into longitude 
-and latitude in the analysis).
+https://at.govt.nz/about-us/reports-publications/traffic-counts/ on 2019/07/02. 
+There were two data files available. File `traffic-counts-to-march-2018-2019.csv` contains records from
+2015-11-04 to 2019-04-09 and the data fields are explained on the website. File 
+`traffic-counts-to-march-2018-2019.csv` contains data from 1958-10-01 to 2018-11-16, however the data fields
+are different from the other file and were not explained. The two files are merged by a common traffic measure: `7-day average traffic count`(ADT) along with 
+the coordinates and the road name. We transfer the coordinates from NZTM to latitudes and longitudes since they are easier to work with python mapping packages (e.g. folium for mapbox). 
+Highway data were removed since the they are quite sparse while having a much higher traffic volume than the majority of road data. 
+Details on data cleaning and merging can be found at [1_data_cleaning.ipynb](1_data_cleaning.ipynb). 
 
 ## Exploratory analysis
+In this analysis we will focus oN (ADT). We consider ADT a good representative measure for the overall 
+traffic measures since through initial exploratory analysis of file `traffic-counts-to-march-2018-2019.csv`, we found all other traffic measures are highly correlated with adt.
+
+The merged data contains records from 1975 to 2019. By plotting the change of ADT over time, we 
+can see gradual increase in traffic volume over time clearly. 
+
+[](images/volume_change_over_time.png)
+
+In particular, we notice that the sampling density is much higher after around 2010. 
+The traffic volume reaches 
+a peak around 2012, followed by a noticable decrease, both in the high percentile traffic volumes and in the number of traffic counts. 
+The volume and the number of traffic counts then increase again and becomes more stable after 2015. 
+We will focus on the records collected after 2010, since these records have similar sampling frequency and therefore are 
+more comparible. The following figures presents a closer view at the data after 2010.
+
+[](images/volume_change_over_time_after_2010.png)
+
+The following figure depicts the historical ADT and the coordinate index. The coordinate indices are sorted by 
+increasing maximum ADT and the points are colored by days elapesd from 2010-01-01. 
+We can see that the maximum ADT of a location is usually the most ADT record.
+
+[](images/ADT_sorted_by_location.png)
+
 There are 2684 records with NZTM coordinates. The majority of the records are 
 after 2018. We remove three records before December 2017 since these records have traffic count dates 
 far apart from those of the other records. Only 219 coordinates (out of 2681) are sampled more than 
 once and 29 coordinates are sampled more than twice since December 2017. 
 
-![](images/sampling_frequency.png)
+[](images/sampling_frequency.png)
 
-Exploratory analysis shows very high correlation between all the traffic volume measures, e.g.
-- `7 Day ADT` is highly correlated with `5 Day ADT` (ρ = 0.99808)
-- `AM Peak Volume` is highly correlated with `Saturday Volume` (ρ = 0.92361)
-- `Mid Peak Volume` is highly correlated with `AM Peak Volume` (ρ = 0.95097)
-- `PM Peak Volume` is highly correlated with `Mid Peak Volume` (ρ = 0.97767)
-- `Sunday Volume` is highly correlated with `Saturday Volume` (ρ = 0.98863)
-- `Saturday Volume` is highly correlated with `7 Day ADT` (ρ = 0.98617) 
+Plotting the scatter plot of date versus coordinate index discovers that the sampling pattern varying 
+over time. For example, we can see there is dense sampling of the coordinates with top ADT around 
+2011 and 2012 (circled in red) and rather sparse sampling at high ADT coordinates from mid 2012 
+to early 2015 (circled in green).
 
-Therefore, for the following analysis we focus on one of the measures - `7 Day ADT`.
-The statistics and the histogram graph of the measure are as the follows:
-- count     2680.000000
-- mean      9404.418657
-- std       8412.181971
-- min         13.000000
-- 25%       2127.250000
-- 50%       7334.500000
-- 75%      14845.000000
-- max      45272.000000
+[](images/date_vs_coord_edit.PNG)
 
-![](images/volume_histogram.png)
+Adding ADT as color scale shows that ADT over time for a coordinate appears to be stable. Note that there is 
+a higher sampling density near central Auckland.
 
-## Change of traffic volume over time
-We use records in which the coordinates that are sampled more than once to estimate the change of traffic volume. 
-The following figure shows the time periods between the first traffic count date and the last traffic count date.
+[](images/date_vs_coord_colored_by_ADT.png)
 
-![](images/days_apart.png)
+A closer look at records after 2015 and index larger than 12000 shows that there are indeed a few 
+variations of ADT over time but systematical change in ADT is not observed.
 
-We can see the maximum days apart between two traffic count dates is around 350 days, as 
-represented by the cluster at the top-left cornor of the figure. These data points are good for measuring
-the change of traffic volume since seasonality effects are minimal. 
+[](images/date_vs_coord_colored_by_ADT_subset.png)
 
-We measure the volume change in percentage as ![](images/eq1.gif). 
+The same conclusion is observed from the plot of ADT and coordinates. 
 
-The statistics for percentage volume change and the boxplot are as follows:
-- count    82.000000
-- mean      0.038190
-- std       0.244060
-- min      -0.397260
-- 25%      -0.014803
-- 50%       0.015042
-- 75%       0.065151
-- max       1.810000
+[](images/Yearly_ADT_and_cooredinates.png)
 
-![](images/percent_volume_difference.png)
+We also found certain locations are repeatly sampled and the variations between historical samples are 
+reasonably consistant.
 
-The median percentage volume difference is 1.5%. The mean volume difference is 3.8% but the mean value is skewed by the outliers. It would be interesting to look into the reasons behind these outliers.
+[](images/sampling_count_vs_coord.png) [](images/index_with_filtered_sampling_count.png)
 
-Mapping of the data shows that most records are for the south of Auckland, near Pukekohe, Waiuku and Manaukau heads. 
+# Conclusion from exploratory analysis
+Since both traffic count locations and traffic count frequencies vary over time, finding two 
+comparible sample groups from the dataset to conduct statistical testing is difficult. 
 
-![](images/percentage_volume_diff_map.PNG)
-
-## to be continued
+An alternative approach to find insights from the dataset is to construct a model on top of the data and 
+make inference from model outputs (which is currently in progress).
 
 
 
