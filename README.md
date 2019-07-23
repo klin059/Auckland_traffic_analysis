@@ -72,7 +72,7 @@ traffic trends from the dataset is to construct a model on top of the data and
 make inference from model outputs.
 
 # Work in progress
-Notebooks are model building are available at [3_Model_building_first attempt.ipynb](3_Model_building_first%20attempt.ipynb) and [4_feature_engineering.ipynb](4_feature_engineering.ipynb), however, they are still in progress.
+Notebooks for model building are available at [3_Model_building_first attempt.ipynb](3_Model_building_first%20attempt.ipynb) and [4_feature_engineering.ipynb](4_feature_engineering.ipynb), however, they are still in progress.
 
 
 
