@@ -65,14 +65,31 @@ reasonably consistant.
 
 ![](images/sampling_count_vs_coord.png) ![](images/index_with_filtered_sampling_count.png)
 
-# Conclusion from exploratory analysis
+## Insights from exploratory analysis
 Since both traffic count coordinates and traffic count frequencies vary over time, finding two 
 comparible samples from the dataset to conduct statistical testing is difficult. An alternative approach to find insights or to identify 
 traffic trends from the dataset is to construct a model on top of the data and 
 make inference from model outputs.
 
-# Work in progress
-Notebooks for model building are available at [5 Data cleaning - new data obtained 20190728.ipynb](5%20Data%20cleaning%20-%20new%20data%20obtained%2020190728.ipynb),  [6_predictive_modelling.ipynb](6_predictive_modelling.ipynb). The latest model achieves a R-squared value of 91% with 2018 Jan traffic count data as the test set. 
+# Predictive modelling
+Notebooks for model building are available at [5 Data cleaning - new data obtained 20190728.ipynb](5%20Data%20cleaning%20-%20new%20data%20obtained%2020190728.ipynb) and [6_predictive_modelling.ipynb](6_predictive_modelling.ipynb). 
+
+We use both [traffic count data](https://data-atgis.opendata.arcgis.com/datasets/average-daily-traffic-counts) and [traffic management level](https://data-atgis.opendata.arcgis.com/datasets/traffic-management-levels) data to build the predictive model. We focus on traffic count data after 2010 since the sampling pattern obtained before 2010 is very different from those after 2010 (as observed in the exploratory analysis). We add in date parts (i.e. year, month, week of the year, time elapsed etc) to the dataset and use random forest as the predictive model due to ease of model interpretation.
+
+Applying expanding-window back-testing with data after 2017 as the test set and with time steps of 2 months leads to a validation R-squared score of 86.86%. The validation score varies from 75% to 94%, which could be due to the change of road infrastructures. In fact, there were 3318 [infrastructure projects](https://data-atgis.opendata.arcgis.com/datasets/at-infrastructure-projects) took plance in Auckland between 2017 and 2019.
+Adding infrastructure data could potentially improve the back-testing score. Unfortunately, the coordinate details are not available in tabular form so it was not used. 
+
+For the analysis of traffic change over time, we do not need to fit a time-series model i.e. we are interested in the historical change of traffic volume, not the future change of traffic volume. By fitting the model with a shffled train-validation split, we obtain a validation score of 97% and an out-of-bag validation score of 96.7%, indicating an excellent model fit. 
+
+# Partial dependent plot
+We apply Partial dependent plot to see how the feature `year` affects the ADT values.
+
+# Summary
+Work in progress...
+
+
+
+
 
 
 
