@@ -1,5 +1,5 @@
 # Auckland_traffic
-In this project, we analyse Auckland traffic data to make inference and to forecast the change of traffic volume over time. 
+In this project, we analyse the change of Auckland traffic over time. 
 
 Interactive visualization of the data is available at https://akl-traffic-vis.herokuapp.com/. 
 
@@ -76,22 +76,21 @@ Notebooks for model building are available at [5 Data cleaning - new data obtain
 
 We use both [traffic count data](https://data-atgis.opendata.arcgis.com/datasets/average-daily-traffic-counts) and [traffic management level](https://data-atgis.opendata.arcgis.com/datasets/traffic-management-levels) data to build the predictive model. We focus on traffic count data after 2010 since the sampling pattern obtained before 2010 is very different from those after 2010 (as observed in the exploratory analysis). We add in date parts (i.e. year, month, week of the year, time elapsed etc) to the dataset and use random forest as the predictive model driven by  model interpretability.
 
-Applying expanding-window back-testing with data after 2017 as the test set and with time steps of 2 months leads to a validation R-squared score of 86.86%. The validation score varies from 75% to 94%. The variations in validation scores could be caused by the change of road infrastructures. In fact, there were 3318 [infrastructure projects](https://data-atgis.opendata.arcgis.com/datasets/at-infrastructure-projects) in Auckland between 2017 and 2019.
-Adding data of the infrastructure projects could potentially improve the back-testing score. Unfortunately, the coordinate details are not available in tabular form so the data is not used. 
+We apply back-testing validation to see how well the predictive model works for forecasting. Using expanding-window back-testing with data after 2017 as the test set and with time steps of 2 months leads to a validation R-squared score of 86.86%. The validation score varies from 75% to 94%. The variations in validation scores could be caused by the change of road infrastructures. In fact, there were 3318 [infrastructure projects](https://data-atgis.opendata.arcgis.com/datasets/at-infrastructure-projects) in Auckland between 2017 and 2019. Adding data of the infrastructure projects could potentially improve the back-testing score. Unfortunately, the coordinate details are not available in tabular form so the data is not used. 
 
-For the analysis of traffic change over time, we do not need to fit a time-series model i.e. we are interested in the historical change of traffic volume, not the future change of traffic volume. By fitting the model with a shffled train-validation split, we obtain a validation score of 97% and an out-of-bag validation score of 96.7%, indicating an excellent model fit. 
+For the analysis of traffic change over time, we do not need to fit a time-series model since we are interested in the historical change of traffic volume, not the future change of traffic volume. By fitting the model with a shuffled train-validation split, we obtain a validation score of 97% and an out-of-bag validation score of 96.7%, indicating an excellent model fit. 
 
 # Partial dependent plot
-We apply Partial dependent plot to see how the feature `year` affects the ADT values.
+[Partial dependent plot](https://christophm.github.io/interpretable-ml-book/pdp.html) depicts the average effects of one or more features to the predicted value of interest. We apply Partial dependent plot to see how the traffic volume changes over time. 
+
+![](images/pdp_plot.png)
+
+From the plot, we can see the averaged increase in ADT is most observant during 2013 to 2015. We also notice the rapid increase of standard deviation (shaded area) after 2013, which can be caused by an increased variation of traffic volumes.
 
 Work in progress...
 
 # Summary
 Work in progress...
-
-
-
-
 
 
 
