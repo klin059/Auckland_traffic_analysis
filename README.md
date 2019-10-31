@@ -6,7 +6,7 @@ Interactive visualization of the data is available at https://akl-traffic-vis.he
 [<img src="images/app_screen_shot.png" width = "800">](https://auckland-traffic-vis.herokuapp.com/)
 
 ## Abstract
-In this work we conduct analysis on Auckland traffic count data to see if the data can be used to provide insights for traffic design and planning. Since the traffic count coordinates and traffic count frequencies are not consistant over time, it is hard to find two comparible samples for statistical inference. Instead, I develope a random forest model with the data and illustrate that insights can be drawn from the model using partial dependent plot. The model achieves an excellent accuracy using a shuffled testing set (97% R-squared value) but the accuracy dropped when back-testing is used (86.86% R-squared value). One reason for the discrepency could be due to infrasturcture projects taking places over Auckland. Since the (shuffled-testing) model has an excellent fit, we can use the model to identify potential abnormal traffic changes by finding large differences between the forcasted value and the actual observations. 
+In this work we conduct analysis on Auckland traffic count data to see if the data can be used to provide insights for traffic design and planning. Since the traffic count coordinates and traffic count frequencies are not consistant over time, it is hard to find two comparible samples for statistical inference. Instead, I develope a random forest model with the data and illustrate that insights can be drawn from the model using partial dependent plot. The model achieves an excellent accuracy using a shuffled testing set (97% R-squared value) but the accuracy dropped when back-testing is used (86.86% R-squared value). One reason for the discrepency could be due to infrasturcture projects taking places over Auckland. Since the (shuffled-testing) model has an excellent fit, we can use the model to identify potential abnormal traffic changes by finding large differences between the forecasted value and the actual observations. 
 
 ## Data
 Data was obtained from 
@@ -15,9 +15,7 @@ There were two files available. File `traffic-counts-to-march-2018-2019.csv` con
 2015-11-04 to 2019-04-09 and the fields are explained on the website. File 
 `traffic-counts-to-march-2018-2019.csv` contains data from 1958-10-01 to 2018-11-16, however the fields
 are different from the other file and were not explained. The two files were merged by a common traffic measure: `7-day average traffic count`(ADT) along with 
-the coordinates and the road name. We transfer the coordinates from NZTM to latitudes and longitudes since they are easier to work with python mapping packages (e.g. folium or mapbox). 
-Highway data were removed since the they are quite sparse and have a much higher traffic volume than the majority of road data. 
-Details on data cleaning and merging can be found at [1_data_cleaning.ipynb](1_data_cleaning.ipynb). 
+the coordinates and the road name. We transfer the coordinates from NZTM to latitudes and longitudes since they are easier to work with python mapping packages (e.g. folium or mapbox). Details on data cleaning and merging can be found at [1_data_cleaning.ipynb](1_data_cleaning.ipynb). 
 
 ## Exploratory analysis
 In this analysis we use ADT as the representitive measure of traffic volume since ADT is one of the common fields in both files. We note that from the initial exploratory analysis of file `traffic-counts-to-march-2018-2019.csv`, we found all other traffic volume measures are highly correlated with ADT, so ADT is likely to be a good representative measure for traffic volume, at least for years 2018 and 2019.  
@@ -42,24 +40,25 @@ We can see that the maximum ADT of a location is usually the most recent ADT rec
 
 [<img src="images/ADT_sorted_by_location.png" width = "500">](images/ADT_sorted_by_location.png)
 
-Plotting the scatter plot of date versus coordinate index shows that the sampling pattern varys 
+Plotting the scatter plot of date versus coordinate index shows that the sampling pattern varies 
 over time. For example, we can see there is a dense sampling of the coordinates with high ADT volumes around 
 2011 and 2012 (circled in red) and a sparse sampling of coordinates with high ADT from mid 2012 
 to early 2015 (circled in green).
 
 [<img src="images/date_vs_coord_edit.PNG" width = "400">](images/date_vs_coord_edit.PNG)
 
-Adding ADT as color scale shows that ADT over time for a coordinate appears to be stable. Note that there is 
-a high sampling density near central Auckland.
+Looking at ADT with color scale shows that ADT over time for the coordinate indices appears to be stable. 
 
 ![](images/date_vs_coord_colored_by_ADT.png)
 
-Looking at the records after 2015 and index larger than 12000 shows that there are a few 
+Looking at the records after 2015 and coordinate index larger than 12000 shows that there are a few 
 variations of ADT over time but a systematical change in ADT is not observed.
 
 ![](images/date_vs_coord_colored_by_ADT_subset.png)
 
-The same conclusion is observed from the plot of ADT and coordinates. 
+
+The same conclusion is observed from the plot of ADT and coordinates. Note that there is 
+a high sampling density near central Auckland.
 
 ![](images/Yearly_ADT_and_cooredinates.png)
 
