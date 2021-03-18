@@ -6,7 +6,12 @@ Interactive visualization of the data is available at https://akl-traffic-vis.he
 [<img src="images/app_screen_shot.png" width = "800">](https://auckland-traffic-vis.herokuapp.com/)
 
 ## Abstract
-In this work we conduct analysis on Auckland traffic count data to see if the data can be used to provide insights for traffic design and planning. Since the traffic count coordinates and traffic count frequencies are not consistent over time, it is hard to find two comparible samples for statistical inference. Instead, we develope a random forest model with the data and illustrate that insights can be drawn from the model using partial dependent plot. The model achieves an excellent accuracy using a shuffled testing set (97% R-squared value) but the accuracy dropped when back-testing is used (86.86% R-squared value). One reason for the discrepency could be due to infrasturcture projects taking places over Auckland. Since the (shuffled-testing) model has an excellent fit, we can use the model to identify potential abnormal traffic changes by finding large differences between the forecasted value and the actual observations. 
+In this work we conduct analysis on Auckland traffic count data to see if the data can be used to provide insights for traffic design and planning. 
+Since the traffic count coordinates and traffic count frequencies are not consistent over time, it is hard to find two comparible samples for statistical inference. 
+Instead, we develope a random forest model with the data and illustrate that insights can be drawn from the model using partial dependent plot. 
+The model achieves an excellent accuracy using a shuffled testing set (97% R-squared value) but the accuracy dropped when back-testing is used (86.86% R-squared value). 
+One reason for the discrepency could be due to infrasturcture projects taking places over Auckland. Since the (shuffled-testing) model has an excellent fit, 
+we can use the model to identify historical abnormal traffic changes by finding large differences between predicted values and actual observations. 
 
 ## Data
 Data was obtained from 
