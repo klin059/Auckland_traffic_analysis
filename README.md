@@ -3,7 +3,7 @@ In this project, we analyse the change of Auckland traffic volume over time. The
 
 Interactive visualization of the data is available at https://akl-traffic-vis.herokuapp.com/. 
 
-[<img src="images/app_screen_shot.png" width = "800">](https://auckland-traffic-vis.herokuapp.com/)
+[<img src="images/app_screen_shot.png" width = "800">](https://akl-traffic-vis.herokuapp.com/)
 
 ## Abstract
 In this work we conduct analysis on Auckland traffic count data to see if the data can be used to provide insights for traffic design and planning. 
